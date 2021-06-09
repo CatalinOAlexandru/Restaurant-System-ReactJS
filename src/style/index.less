@@ -1,0 +1,312 @@
+// out:_bundle.css, compress:true
+
+// Colours
+@primary: #bc332d;
+
+@light-shade : #a6ccc1;
+@dark-shade  : #476a6b;
+
+@dark :  #2b3031;
+@white : #faf9f5;
+
+// Pixels
+@root_margin : 32px;
+
+// Auto generated
+@root_margin_x2 : @root_margin * 2;
+
+html, body {
+   background: repeating-linear-gradient(
+      20deg,
+      @dark 0px,
+      @dark 10px,
+      darken(@dark, 4%) 10px,
+      darken(@dark, 5%) 20px
+   );
+   overflow-y: scroll;
+}
+
+body {
+   margin:0;
+   padding:@root_margin;
+
+   // Discord's font list! (https://discordapp.com/)
+   font-family: Whitney, "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+* {
+   box-sizing:border-box;
+}
+
+#wrapper {
+   background: radial-gradient(ellipse at top, @white, @light-shade);
+
+   box-shadow:0 0 8px 8px darken(@dark, 2.5%);
+   position:relative;
+   max-width:1000px;
+   margin-left:auto;
+   margin-right:auto;
+
+   &:not(.location-none) {
+      min-height:~"calc(100vh - @{root_margin_x2})";
+   }
+}
+
+#wrapper.location-none {
+   width:300px;
+   height:236px;
+   position:absolute;
+   left:~"calc(50% - 150px)";
+   top:~"calc(50% - 250px)";
+}
+
+header {
+   background:@primary;
+   color:@white;
+   border-bottom:solid 1px darken(@primary, 25%);
+}
+
+header .logo-text {
+   float:left;
+   margin:8px;
+
+
+   span {
+      display:inline-block;
+      font-size:24px;
+      font-weight:bold;
+      width:25px;
+      text-align:center;
+      margin-left:0.5px;
+      margin-right:0.5px;
+      background: fade(@white, 94%);
+      color:@primary;
+   }
+}
+
+header .menu {
+   float:right;
+   vertical-align:center;
+}
+
+header .menu .menu-item {
+   box-sizing:content-box;
+   background: darken(@primary, 10%);
+   border:solid 3px darken(@primary, 10%);
+   text-decoration:none;
+
+   display: inline-block;
+   height:45px - 6px;
+   line-height:45px - 6px;
+   padding-left:12px;
+   padding-right:12px;
+
+   + .menu-item {
+      margin-left:1px;
+   }
+
+   cursor:pointer;
+   /*
+   &:hover {
+      background:darken(@primary, 17.5%);
+      color:darken(@white, 5%);
+   }
+   */
+
+   &.active {
+      background:lighten(@primary, 55%);
+      border-color:darken(@primary, 17.5%);
+      color:@primary;
+   }
+}
+
+.split-wrapper {
+   position:absolute;
+   top:46px;
+   bottom:0;
+   left:0;
+   right:0;
+}
+
+.split-wrapper .sidebar,
+.split-wrapper .content-area {
+   display:inline-block;
+   vertical-align:top;
+   height:100%;
+}
+
+.split-wrapper .sidebar {
+   width:200px;
+   height:100%;
+   background:@dark-shade;
+   border-right:solid 1px darken(@dark-shade, 10%);
+   overflow-y:scroll;
+}
+
+.split-wrapper .sidebar .sidebar-heading {
+   width:100%;
+   font-size:22px;
+   background:@light-shade;
+   text-align:center;
+   font-weight:400;
+   margin-bottom:2px;
+   padding:4px;
+}
+
+.split-wrapper .content-area {
+   width:~"calc(100% - 200px)";
+}
+
+.side-options {
+   margin:4px;
+   margin-top:5px;
+   margin-bottom:5px;
+   height:"calc(100% - 35px)";
+}
+
+.side-options .side-option {
+   background:@light-shade;
+   border:solid 4px @light-shade;
+   padding:5px;
+
+   + .side-option {
+      margin-top:6px;
+   }
+
+   cursor:pointer;
+   /*
+   &:hover {
+      background:darken(@light-shade, 10%);
+   }
+   */
+
+   &.active {
+      background:@white;
+      border-color:@light-shade;
+   }
+}
+
+.content-area {
+   padding:6px;
+}
+
+input[type="text"],
+input[type="search"],
+input[type="number"],
+input[type="password"],
+select,
+textarea {
+   display:block;
+   width:100%;
+   max-width:300px;
+
+   padding:8px;
+   background:@white;
+   border:solid 2px @dark-shade;
+   font-size:16px;
+   margin-bottom:8px;
+
+   &:focus {
+      outline:0;
+   }
+}
+
+label {
+
+}
+
+.button {
+   padding:10px;
+   background:@dark-shade;
+   color:@white;
+   text-align:center;
+   width:100%;
+   max-width:300px;
+
+   cursor:pointer;
+   &:hover {
+      background:darken(@dark-shade,10%);
+   }
+}
+
+table {
+   width:100%;
+   table-layout:fixed;
+
+   th {
+      text-align:left;
+   }
+
+   td {
+      vertical-align:top;
+   }
+}
+
+.login-wrapper {
+   padding:10px;
+   margin:auto;
+}
+
+.account-wrapper {
+   padding:10px;
+}
+
+.order-menu-option {
+   background:@light-shade;
+   padding:6px;
+
+   div, small {
+      display:block;
+   }
+}
+
+h1 {
+   margin:0;
+   margin-bottom:10px;
+   font-weight:300;
+   font-size:40px;
+   border-bottom:solid 4px black;
+}
+
+h2 {
+   display: inline-block;
+   margin:0;
+   margin-bottom:10px;
+   font-weight:300;
+   font-size:24px;
+   border-bottom:solid 2px black;
+}
+
+.quantity-button {
+   display:inline-block;
+   float:right;
+   font-size:24px;
+   line-height:30px;
+   height:34px;
+   width:34px;
+   text-align:center;
+   font-weight:bold;
+   background:@dark-shade;
+   color:@white;
+
+   + .quantity-button {
+      margin-right:2px;
+   }
+
+   cursor:pointer;
+   &:hover {
+      background:darken(@dark-shade, 5%);
+   }
+
+   user-select:none;
+   -webkit-user-select:none;
+}
+
+.mini-break {
+   display:block;
+   height:5px;
+}
+
+.clear {
+   clear:both;
+}
